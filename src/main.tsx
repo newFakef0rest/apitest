@@ -4,8 +4,27 @@ import App from './App.tsx'
 import './scss/_mixins.scss';
 import './scss/main.scss';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import { Error } from './components/Error/Error.tsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/apitest/",
+    element: <App />,
+    errorElement: <Error />
+  },
+]);
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <App />
+  <RouterProvider router={router} />
 )
