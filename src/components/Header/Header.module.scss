@@ -1,0 +1,15 @@
+.header {
+    padding: 15px 0;
+    &__row {
+        justify-content: space-between;
+    }
+    &__ul {
+        display: flex;
+        li {
+            margin-right: 15px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

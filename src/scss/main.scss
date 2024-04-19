@@ -1,0 +1,18 @@
+@import './_normalize.scss';
+@import './_mixins.scss';
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    padding: 0 -15px;
+}
+
+.col {
+    &__12 {
+        @include col(12);
+    }
+}
