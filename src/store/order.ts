@@ -1,22 +1,22 @@
-import {makeAutoObservable} from 'mobx';
-import axios from 'axios';
-import {fromPromise, IPromiseBasedObservable} from 'mobx-utils';
-import TArticles from '../types/types';
+// import {makeAutoObservable} from 'mobx';
+// // import axios from 'axios' fromPromise;
+// import {IPromiseBasedObservable} from 'mobx-utils';
+// import TArticles from '../types/types';
 
-class Order {
-    products?: IPromiseBasedObservable<TArticles>
+// class Order {
+//     products?: IPromiseBasedObservable<TArticles>
 
-    constructor() {
-        makeAutoObservable(this)
-    }
+//     constructor() {
+//         makeAutoObservable(this)
+//     }
 
-    add () {
-        const resultData = async() => {            
-            return (await axios.get('https://api.realworld.io/api/articles?limit=10&offset=0')).data
-        }
-        this.products = fromPromise(resultData());
-    }
-}
+//     // add () {
+//     //     const resultData = async() => {            
+//     //         return (await axios.get('https://api.realworld.io/api/articles?limit=10&offset=0')).data
+//     //     }
+//     //     this.products = fromPromise(resultData());
+//     // }
+// }
 
-export default new Order();
+// export default new Order();
 
