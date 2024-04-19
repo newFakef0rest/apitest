@@ -7,6 +7,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import { observer } from 'mobx-react-lite';
 import order from '../../store/order';
+import { Loader } from '../Loader/Loader';
 
 function Item() {
     React.useEffect(() => {
@@ -20,7 +21,7 @@ function Item() {
     }
 
     if (order.products?.state == 'pending') {
-        return <div>Pending</div>
+        return <Loader/>
     }
 
   return (
