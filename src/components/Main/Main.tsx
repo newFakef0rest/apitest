@@ -1,5 +1,5 @@
+import Item from '../Item/Item';
 import styles from './Main.module.scss';
-// import AlignItemsList from './newItem/newItem';
 
 function Main () {
 
@@ -8,7 +8,7 @@ function Main () {
         <div className="container">
             <div className="row">
                 <div className="col__12">
-                    {/* <AlignItemsList/> */}
+                    <Item />
                 </div>
             </div>
         </div>
