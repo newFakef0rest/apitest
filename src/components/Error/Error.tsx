@@ -7,7 +7,7 @@ export const Error = () => {
         <div className="row">
             <div className="col__12">
                 <div className={styles.error}>
-                    <Paper elevation={3}>Error</Paper>
+                    <Paper elevation={3}>Error. You are on the wrong page</Paper>
                 </div>
             </div>
         </div>

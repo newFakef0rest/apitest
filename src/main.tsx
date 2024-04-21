@@ -15,12 +15,19 @@ import {
 } from "react-router-dom";
 
 import { Error } from './components/Error/Error.tsx';
+import Item from './components/Item/Item.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/apitest/",
     element: <App />,
-    errorElement: <Error />
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/apitest/:id",
+        element: <Item/>
+      }
+    ]
   },
 ]);
 

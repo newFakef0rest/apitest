@@ -8,16 +8,28 @@ import Avatar from '@mui/material/Avatar';
 import { observer } from 'mobx-react-lite';
 import order from '../../store/order';
 import { Loader } from '../Loader/Loader';
+import { useParams } from 'react-router-dom';
+import { Error } from '../Error/Error';
 
 function Item() {
+    const {id} = useParams<{id: string}>();
+
+    if (id){
+        if (isNaN(+id)) {
+            return <Error />
+        }
+    }
+
+    const newId = id ? +id : 0
+
     React.useEffect(() => {
-        order.add()
-    }, [])
+        order.add(newId)
+    }, [id])
 
 
 
     if (order.products?.state == 'rejected') {
-        return <div>Error</div>
+        return <Error />
     }
 
     if (order.products?.state == 'pending') {

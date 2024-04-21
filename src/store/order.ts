@@ -10,11 +10,11 @@ class Order {
         makeAutoObservable(this)
     }
 
-    add () {
-        const resultData = async() => {            
-            return (await axios.get('https://api.realworld.io/api/articles?limit=10&offset=0')).data
+    add (id = 0) {
+        const resultData = async(id: number) => {            
+            return (await axios.get(`https://api.realworld.io/api/articles?limit=10&offset=${id * 10}`)).data
         }
-        this.products = fromPromise(resultData());
+        this.products = fromPromise(resultData(id));
     }
 }
 
