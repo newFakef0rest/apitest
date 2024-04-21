@@ -19,12 +19,12 @@ import Item from './components/Item/Item.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/apitest/",
+    path: "/",
     element: <App />,
     errorElement: <Error />,
     children: [
       {
-        path: "/apitest/:id",
+        path: "/:id",
         element: <Item/>
       }
     ]
