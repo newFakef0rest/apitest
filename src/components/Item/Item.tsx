@@ -10,6 +10,7 @@ import order from '../../store/order';
 import { Loader } from '../Loader/Loader';
 import { useParams } from 'react-router-dom';
 import { Error } from '../Error/Error';
+import PaginationRounded from '../Pagination/Pagination';
 
 function Item() {
     const {id} = useParams<{id: string}>();
@@ -36,6 +37,8 @@ function Item() {
         return <Loader/>
     }
 
+    console.log(order.products?.value.articlesCount)
+
   return (
     <List sx={{ width: '100%',bgcolor: 'background.paper' }}>
         {order.products?.value.articles.map((item, idx) => (
@@ -57,7 +60,7 @@ function Item() {
             </div>
             
         ))}
-
+        <PaginationRounded count={order.products?.value.articlesCount} newId={newId}/>
     </List>
   );
 }
