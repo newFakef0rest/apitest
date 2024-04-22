@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import { Error } from '../Error/Error';
 import PaginationRounded from '../Pagination/Pagination';
 import styles from './Item.module.scss';
-import { Button, Chip, Stack } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 
 function Item() {
     const {id} = useParams<{id: string}>();
