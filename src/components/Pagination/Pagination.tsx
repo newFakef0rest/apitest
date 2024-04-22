@@ -10,7 +10,7 @@ type Tprops = {
 export default function PaginationRounded({count, newId} : Tprops) {
     const navigate = useNavigate()
 
-    const pageChange = (event: React.ChangeEvent<unknown>, page: number) => {
+    const pageChange = (_event: React.ChangeEvent<unknown>, page: number) => {
         navigate(`/${page}`)
     }
   return (
