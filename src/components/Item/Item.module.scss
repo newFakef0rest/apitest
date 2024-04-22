@@ -13,3 +13,23 @@
         margin-bottom: 15px;
     }
 }
+.list {
+    &__item {
+        &_box {
+            width: 100%;
+            &_username {
+                span {
+                    color: green;
+                }
+            }
+        }
+        &_content {
+            span {
+                font-size: 26px;
+            }
+            p {
+                font-size: 22px;
+            }
+        }
+    }
+}

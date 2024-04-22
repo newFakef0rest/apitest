@@ -11,6 +11,8 @@ import { Loader } from '../Loader/Loader';
 import { useParams } from 'react-router-dom';
 import { Error } from '../Error/Error';
 import PaginationRounded from '../Pagination/Pagination';
+import styles from './Item.module.scss';
+import { Button, Chip, Stack } from '@mui/material';
 
 function Item() {
     const {id} = useParams<{id: string}>();
@@ -36,32 +38,52 @@ function Item() {
     if (order.products?.state == 'pending') {
         return <Loader/>
     }
-
-    console.log(order.products?.value.articlesCount)
-
   return (
-    <List sx={{ width: '100%',bgcolor: 'background.paper' }}>
+    <>
         {order.products?.value.articles.map((item, idx) => (
-            <div key={idx}>
+            <List key={idx} sx={{ width: '100%',bgcolor: 'background.paper' }}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="Remy Sharp" src={item.author.image} />
                     </ListItemAvatar>
-                    <ListItemText
-                        primary={item.title}
-                        secondary={
-                            <React.Fragment>
-                            {item.slug}
-                            </React.Fragment>
-                        }
-                    />
+
+                        {/* Username and Date*/}
+                        <ListItemText
+                            className={`${styles.list__item_box} ${styles.list__item_box_username}`}
+                            primary={item.author.username}
+                            secondary={
+                                <React.Fragment>
+                                {new Date(item.createdAt).toDateString()}
+                                </React.Fragment>
+                            }
+                        />
                 </ListItem>
-                <Divider variant="inset" component="li" />
-            </div>
+                <ListItem className={styles.list__item}>
+                        {/* Main Content */}
+                        <ListItemText
+                            className={`${styles.list__item_box} ${styles.list__item_content}`}
+                            primary={item.title}
+                            secondary={
+                                <React.Fragment>
+                                {item.slug}
+                                </React.Fragment>
+                            }
+                        />
+                </ListItem>
+                <ListItem sx={{ justifyContent: 'space-between'}}>
+                    <Button variant="outlined" color="success">Read More...</Button>
+                    <Stack direction="row" spacing={1}>
+                        {/* {item.taglist.map(tag => (
+                            <Chip label='sobaka' variant="outlined"/>
+                        ))} */}
+                    </Stack>
+                </ListItem>
+                <Divider variant="inset" component="li" sx={{ marginLeft: 0, paddingBottom: '20px   '}} />
+            </List>
             
         ))}
         <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId : 1}/>
-    </List>
+    </>
   );
 }
 
