@@ -60,7 +60,7 @@ function Item() {
             </div>
             
         ))}
-        <PaginationRounded count={order.products?.value.articlesCount} newId={newId}/>
+        <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId : 1}/>
     </List>
   );
 }
