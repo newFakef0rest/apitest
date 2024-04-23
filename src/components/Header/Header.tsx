@@ -1,5 +1,6 @@
 import styles from './Header.module.scss';
 import HomeIcon from '../../Icons/HomeIcon';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
@@ -7,7 +8,7 @@ export const Header = () => {
         <div className="container">
             <div className={`row ${styles.header__row}`}>
                 <div className={styles.header__logo}>
-                  <a href="#"><HomeIcon fontSize="large" /></a>
+                  <Link to="/"><HomeIcon fontSize="large" /></Link>
                 </div>
                 <nav className={styles.header__nav}>
                   <ul className={styles.header__ul}>

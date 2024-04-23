@@ -3,6 +3,10 @@ type TArticles = {
     articlesCount: number
 }
 
+type TArticle = {
+    article: TProducts
+}
+
 type TAuthor = {
     username: string,
     bio: null,
@@ -23,4 +27,4 @@ type TProducts = {
     author: TAuthor
 }
 
-export default TArticles;
+export type { TArticles, TProducts, TArticle};

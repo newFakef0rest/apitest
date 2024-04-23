@@ -15,7 +15,9 @@ import {
 } from "react-router-dom";
 
 import { Error } from './components/Error/Error.tsx';
-import Item from './components/Item/Item.tsx';
+import Item from './components/Items/Items.tsx';
+import Profile from './components/Profile/Profile.tsx';
+import { OrderStateProvider } from './contexts/storeContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/:id",
         element: <Item/>
+      },
+      {
+        path: "/profile/:profId",
+        element: <Profile />
       }
     ]
   },
@@ -33,5 +39,7 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router} />
+  <OrderStateProvider>
+    <RouterProvider router={router} />
+  </OrderStateProvider>
 )
