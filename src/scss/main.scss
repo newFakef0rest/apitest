@@ -19,4 +19,37 @@ body {
     &__12 {
         @include col(12);
     }
+    &__11 {
+        @include col(11);
+    }
+    &__10 {
+        @include col(10);
+    }
+    &__9 {
+        @include col(9);
+    }
+    &__8 {
+        @include col(8);
+    }
+    &__7 {
+        @include col(7);
+    }
+    &__6 {
+        @include col(6);
+    }
+    &__5 {
+        @include col(5);
+    }
+    &__4 {
+        @include col(4);
+    }
+    &__3 {
+        @include col(3);
+    }
+    &__2 {
+        @include col(2);
+    }
+    &__1 {
+        @include col(1);
+    }
 }

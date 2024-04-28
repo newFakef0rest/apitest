@@ -7,6 +7,18 @@ type TArticle = {
     article: TProducts
 }
 
+type TComments = {
+    comments: TComment[]
+}
+
+type TComment = {
+    id: number,
+    createdAt: string,
+    updatedAt: string,
+    body: string,
+    author: TAuthor
+}
+
 type TAuthor = {
     username: string,
     bio: null,
@@ -27,4 +39,4 @@ type TProducts = {
     author: TAuthor
 }
 
-export type { TArticles, TProducts, TArticle};
+export type { TArticles, TProducts, TArticle, TComments, TComment};

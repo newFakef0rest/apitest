@@ -2,6 +2,7 @@ import { observer} from 'mobx-react-lite';
 import { useOrderStore } from '../../contexts/storeContext';
 import styles from './Banner.module.scss';
 import { useParams } from 'react-router-dom';
+import { UserInfo } from '../UserInfo/UserInfo';
 
 // import order from '../../store/order';
 
@@ -21,9 +22,9 @@ export const Banner = observer(() => {
   //   return <Loader/>
   // }
 
-  
 
   if (order.product?.state === 'fulfilled' && profId) {
+    console.log(order.product.value)
     return (
       <div className={`${styles.banner} ${styles.banner__second}`}>
         <div className="container">
@@ -33,15 +34,7 @@ export const Banner = observer(() => {
                 <div className={styles.banner__title}>
                   <h1>{order.product?.value.article.title}</h1>
                 </div>
-                <div className={styles.banner__user}>
-                  <div className="banner__user_logo">
-                    <img src={order.product.value.article.author.image} alt="" />
-                  </div>
-                  <div className={styles.banner__user_info}>
-                    <p>{order.product.value.article.author.username}</p>
-                    <span>{new Date(order.product.value.article.createdAt).toDateString()}</span>
-                  </div>
-                </div>
+                <UserInfo article={order.product.value.article} className={styles.banner__user}/>
               </div>
             </div>
           </div>
@@ -49,6 +42,8 @@ export const Banner = observer(() => {
       </div>
     )
   }
+
+  
 
 
   return (

@@ -6,6 +6,7 @@ import { Error } from "../Error/Error";
 import { Loader } from "../Loader/Loader";
 import styles from './Profile.module.scss';
 import { Divider } from "@mui/material";
+import { Comments } from "../Comments/Comments";
 
 
 function Profile(){
@@ -17,6 +18,7 @@ function Profile(){
 
   useEffect(() => {
     order.addOne(profId)
+    order.loadComments(profId)
   }, [profId])
 
   if (order.product?.state === 'rejected') {
@@ -28,12 +30,20 @@ function Profile(){
   }
 
   return (
-    <div className={styles.profile}>
-      <p>{order.product?.value.article.body}</p>
-      
-      <Divider variant="inset" component="li" sx={{ marginLeft: 0, paddingBottom: '20px   '}} />
-    </div>
-    
+    <>
+      <div className="container">
+        <div className="row">
+          <div className={styles.profile}>
+            <p>{order.product?.value.article.body}</p>
+            
+            <Divider variant="inset" component="li" sx={{ marginLeft: 0, paddingBottom: '20px   '}} />
+
+          </div>
+        </div>
+      </div>
+      <Comments />
+    </>
+
   )
 }
 

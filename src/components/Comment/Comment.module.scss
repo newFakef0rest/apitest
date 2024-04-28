@@ -1,0 +1,10 @@
+.comment {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    &__text, &__user {
+        padding: 20px;
+    }
+    &__user {
+        padding-top: 0;
+    }
+}

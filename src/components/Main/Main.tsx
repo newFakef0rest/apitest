@@ -5,21 +5,12 @@ import Item from '../Items/Items';
 
 function Main () {
   const {id, profId} = useParams();
-
-  console.log(id, profId)
   return (
     <main className={styles.main}>
-        <div className="container">
-            <div className="row">
-                <div className="col__12"> 
-                  {id || profId ? (
-                    <Outlet />
-                  ): 
-                  (<Item/>)}
-                    
-                </div>
-            </div>
-        </div>
+        {id || profId ? (
+          <Outlet />
+        ): 
+        (<Item/>)}
     </main>
   )
 }

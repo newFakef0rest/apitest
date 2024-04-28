@@ -1,0 +1,20 @@
+.user {
+    display: flex;
+    align-items: center;
+    img {
+        border-radius: 50%;
+    }
+    &__info {
+        margin-left: 10px;
+        span {
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+        p {
+            color: green;
+            font-weight: 500;
+            font-size: 1rem; 
+        }
+
+    }
+}

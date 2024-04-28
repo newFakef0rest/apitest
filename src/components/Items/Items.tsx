@@ -41,11 +41,17 @@ function Items() {
 
   return (
     <>
-        {order.products?.value.articles.map((item, idx) => (
-            // <h1>{item.slug}</h1>
-            <Item key={idx} item={item}></Item>
-        ))}
-        <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId : 1}/>
+    <div className="container">
+        <div className="row">
+            <div className="col__12">
+                {order.products?.value.articles.map((item, idx) => (
+                        // <h1>{item.slug}</h1>
+                        <Item key={idx} item={item}></Item>
+                    ))}
+                    <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId : 1}/>
+            </div>
+        </div>
+    </div>
     </>
   );
 }
