@@ -4,10 +4,10 @@ import styles from './Main.module.scss';
 import Item from '../Items/Items';
 
 function Main () {
-  const {id, profId} = useParams();
+  const {id, productId} = useParams();
   return (
     <main className={styles.main}>
-        {id || profId ? (
+        {id || productId ? (
           <Outlet />
         ): 
         (<Item/>)}

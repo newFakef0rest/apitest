@@ -4,22 +4,22 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Error } from "../Error/Error";
 import { Loader } from "../Loader/Loader";
-import styles from './Profile.module.scss';
+import styles from './Product.module.scss';
 import { Divider } from "@mui/material";
 import { Comments } from "../Comments/Comments";
 
 
-function Profile(){
-  const {profId} = useParams<{profId: string}>();
+function Product(){
+  const {productId} = useParams<string>();
 
-  if (!profId) {
+  if (!productId) {
     return <Error />
   }
 
   useEffect(() => {
-    order.addOne(profId)
-    order.loadComments(profId)
-  }, [profId])
+    order.addOne(productId)
+    order.loadComments(productId)
+  }, [productId])
 
   if (order.product?.state === 'rejected') {
     return <Error />
@@ -47,4 +47,4 @@ function Profile(){
   )
 }
 
-export default observer(Profile);
+export default observer(Product);

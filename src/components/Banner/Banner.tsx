@@ -8,7 +8,7 @@ import { UserInfo } from '../UserInfo/UserInfo';
 
 export const Banner = observer(() => {
 
-  const {profId} = useParams<string>();
+  const {productId} = useParams<string>();
 
 
   const {order} = useOrderStore()
@@ -23,7 +23,7 @@ export const Banner = observer(() => {
   // }
 
 
-  if (order.product?.state === 'fulfilled' && profId) {
+  if (order.product?.state === 'fulfilled' && productId) {
     console.log(order.product.value)
     return (
       <div className={`${styles.banner} ${styles.banner__second}`}>

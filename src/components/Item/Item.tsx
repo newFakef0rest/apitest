@@ -47,7 +47,7 @@ const Item = ({item, className} : TItemProps) => {
                 </ListItem>
                 <ListItem sx={{ justifyContent: 'space-between'}}>
                     
-                    <Button variant="outlined" href={`/profile/${item.slug}`} color="success">
+                    <Button variant="outlined" href={`/product/${item.slug}`} color="success">
                         Read More...
                     </Button>
                     <Stack direction="row" spacing={1}>
