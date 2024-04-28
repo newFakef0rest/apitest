@@ -14,8 +14,6 @@ export const Comments = () => {
     if (order.comments?.state === 'rejected') {
         return <Error />
     }
-
-    console.log(order.comments?.value.comments)
   return (
     <div className={styles.comments}>
         <div className="container">

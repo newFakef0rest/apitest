@@ -8,6 +8,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import styles from './Item.module.scss';
 import { TProducts } from '../../types/types';
+import { Link } from 'react-router-dom';
 
 type TItemProps = {
     item: TProducts,
@@ -19,7 +20,9 @@ const Item = ({item, className} : TItemProps) => {
     <List className={className} sx={{ width: '100%',bgcolor: 'background.paper' }}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src={item.author.image} />
+                        <Link to={`/profile/${item.author.username}`}>
+                            <Avatar alt="Remy Sharp" src={item.author.image} />
+                        </Link>
                     </ListItemAvatar>
 
                         {/* Username and Date*/}

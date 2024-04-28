@@ -3,6 +3,7 @@ type TArticles = {
     articlesCount: number
 }
 
+
 type TArticle = {
     article: TProducts
 }
@@ -17,6 +18,10 @@ type TComment = {
     updatedAt: string,
     body: string,
     author: TAuthor
+}
+
+type TProfile = {
+    profile: TAuthor
 }
 
 type TAuthor = {
@@ -39,4 +44,4 @@ type TProducts = {
     author: TAuthor
 }
 
-export type { TArticles, TProducts, TArticle, TComments, TComment};
+export type { TArticles, TProducts, TArticle, TComments, TComment, TProfile};

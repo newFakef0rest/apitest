@@ -2,8 +2,28 @@
     width: 100%;
     min-height: 260px;
     background-color: green;
+    position: relative;
     &__item {
        padding: 25px 0;
+       &_profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+       }
+    }
+    &__image {
+        &_profile {
+            img {
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+            }
+        }
     }
     &__title {
         padding-bottom: 40px;

@@ -16,8 +16,9 @@ import {
 
 import { Error } from './components/Error/Error.tsx';
 import Item from './components/Items/Items.tsx';
-import Product from './components/Profile/Product.tsx';
+import Product from './components/Product/Product.tsx';
 import { OrderStateProvider } from './contexts/storeContext.tsx';
+import Profile from './components/Profile/Profile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:productId",
         element: <Product />
+      },
+      {
+        path: "/profile/:profileId",
+        element: <Profile />
       }
     ]
   },
