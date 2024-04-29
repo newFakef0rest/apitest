@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Stack } from '@mui/material';
+import { Button, Chip, Stack } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -26,6 +26,7 @@ const Item = ({item, className} : TItemProps) => {
                     </ListItemAvatar>
 
                         {/* Username and Date*/}
+                        <Link to={`/profile/${item.author.username}`}>
                         <ListItemText
                             className={`${styles.list__item_box} ${styles.list__item_box_username}`}
                             primary={item.author.username}
@@ -35,6 +36,7 @@ const Item = ({item, className} : TItemProps) => {
                                 </React.Fragment>
                             }
                         />
+                        </Link>
                 </ListItem>
                 <ListItem className={styles.list__item}>
                         {/* Main Content */}
@@ -54,11 +56,11 @@ const Item = ({item, className} : TItemProps) => {
                         Read More...
                     </Button>
                     <Stack direction="row" spacing={1}>
-                        {/* {item.taglist.map(tag => (
-                            <Chip label='sobaka' variant="outlined"/>
+                        {item.tagList.map(tag => (
+                            <Chip label={tag} variant="outlined"/>
                                
                             
-                        ))} */}
+                        ))}
                     </Stack>
                 </ListItem>
                 <Divider variant="inset" component="li" sx={{ marginLeft: 0, paddingBottom: '20px   '}} />

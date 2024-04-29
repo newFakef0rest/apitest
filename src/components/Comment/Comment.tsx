@@ -14,7 +14,7 @@ export const Comment = ({comment, className} : TCommentProps) => {
           <p>{comment.body}</p>
       </div>
       <div className={styles.comment__user}>
-          <UserInfo comment={comment}/>
+          <UserInfo article={comment}/>
       </div>
     </li>
   )

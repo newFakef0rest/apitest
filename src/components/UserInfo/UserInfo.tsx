@@ -1,25 +1,27 @@
+import { Link } from "react-router-dom";
 import { TComment, TProducts } from "../../types/types"
 import styles from './UserInfo.module.scss';
 
 type TUserInfoProps = {
-    article?: TProducts,
-    comment?: TComment
+    article: TProducts | TComment,
     className?: string
 }
 
-export const UserInfo = ({article, comment, className} : TUserInfoProps) => {
-    let item;
-    if (article || comment) {
-        item = article ? article : comment
-    }
+export const UserInfo = ({article, className} : TUserInfoProps) => {
   return (
     <div className={`${styles.user} ${className}`}>
         <div className="banner__user_logo">
-            <img src={item && item.author.image} alt="" />
+            <Link to={`/profile/${article.author.username}`}>
+                <img src={article.author.image} alt="" />
+            </Link>
         </div>
         <div className={styles.user__info}>
-            <p>{item && item.author.username}</p>
-            <span>{new Date(item ? item.createdAt : '').toDateString()}</span>
+            <Link to={`/profile/${article.author.username}`}>
+                <p>{article.author.username}</p>
+            </Link>
+            <Link to={`/profile/${article.author.username}`}>
+                <span>{new Date(article.createdAt).toDateString()}</span>
+            </Link>
         </div>
     </div>
   )

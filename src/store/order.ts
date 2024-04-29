@@ -17,7 +17,7 @@ class Order {
         makeAutoObservable(this)
     }
 
-    async add (id = 0) {
+    add (id = 0) {
         const resultData = async(id: number) => {            
             return (await axios.get(`https://api.realworld.io/api/articles?limit=10&offset=${id * 10}`)).data
         }

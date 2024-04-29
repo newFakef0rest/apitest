@@ -23,7 +23,7 @@ function Items() {
         }
     }
 
-    const newId = id ? +id : 0
+    const newId = id ? (+id) - 1 : 0
 
     React.useEffect(() => {
         order.add(newId)
@@ -48,7 +48,7 @@ function Items() {
                         // <h1>{item.slug}</h1>
                         <Item key={idx} item={item}></Item>
                     ))}
-                    <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId : 1}/>
+                    <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId + 1 : 0}/>
             </div>
         </div>
     </div>
