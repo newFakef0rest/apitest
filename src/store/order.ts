@@ -1,8 +1,7 @@
 import {makeAutoObservable} from 'mobx';
-import axios from 'axios' ;
 import {fromPromise, IPromiseBasedObservable} from 'mobx-utils';
 import { TArticles, TArticle, TComments, TProfile, Tags } from '../types/types';
-import { getComments, getOneProduct, getPosts, getProfile, getProfileProducts, getTags } from '../api/api';
+import { getComments, getOneProduct, getPosts, getPostsWithTag, getProfile, getProfileProducts, getTags } from '../api/api';
 
 class Order {
     products?: IPromiseBasedObservable<TArticles>
@@ -11,17 +10,32 @@ class Order {
     profileProducts?: IPromiseBasedObservable<TArticles>
     profile?: IPromiseBasedObservable<TProfile>
     tags?: IPromiseBasedObservable<Tags>
+    tag?: string
 
     constructor() {
         makeAutoObservable(this)
     }
 
     add (id = 0) {
-        this.products = fromPromise(getPosts(id))
+        if (this.tag) {
+            this.products = fromPromise(getPostsWithTag(id, this.tag))
+        } else {
+            this.products = fromPromise(getPosts(id))
+        }
     }
 
     getTags() {
         this.tags = fromPromise(getTags());
+    }
+
+    emptyTag() {
+        this.tag = undefined
+        this.add()
+    }
+    
+    fillTag(tag: string) {
+        this.tag = tag
+        this.add()
     }
 
     addOne(id: string) {

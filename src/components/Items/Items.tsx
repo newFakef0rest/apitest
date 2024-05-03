@@ -2,19 +2,19 @@ import * as React from 'react';
 
 import { observer } from 'mobx-react-lite';
 import { Loader } from '../Loader/Loader';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Error } from '../Error/Error';
 import PaginationRounded from '../Pagination/Pagination';
-// import styles from './Items.module.scss';
-// import order from '../../store/order';
+import styles from './Items.module.scss';
 
 import { useOrderStore } from '../../contexts/storeContext';
 import Item from '../Item/Item';
 import Tags from '../Tags/Tags';
+import { Divider } from '@mui/material';
 
 function Items() {
     const {order} = useOrderStore()
-    const [tag, setTag] = React.useState<string | null>(null);
+    const navigate = useNavigate()
     
 
     const {id} = useParams<{id: string}>();
@@ -41,19 +41,32 @@ function Items() {
         return <Loader/>
     }
 
+    const handleGlobal = () => {
+        navigate('/')
+        order.emptyTag()
+    }
+
+
   return (
     <>
     <div className="container">
         <div className="row">
             <div className="col__9">
+                <div className={styles.items__global}>
+                    <div className={styles.items__feed}>
+                        <span onClick={handleGlobal} className={!order.tag ? styles.items__active : styles.items__unactive}>Global Feed</span>
+                        {order.tag && <span className={styles.items__active}>{order.tag}</span>}
+                    </div>
+
+                    <Divider variant="inset" component="li" sx={{ marginLeft: 0}} />
+                </div>
                 {order.products?.value.articles.map((item, idx) => (
-                        // <h1>{item.slug}</h1>
                         <Item key={idx} item={item}></Item>
                     ))}
                     <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId + 1 : 0}/>
             </div>
             <div className="col__3">
-                <Tags tag={tag} setTag={setTag}/>
+                <Tags/>
             </div>
         </div>
     </div>

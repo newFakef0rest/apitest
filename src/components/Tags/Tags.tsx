@@ -5,16 +5,12 @@ import { useEffect } from "react";
 import { Error } from "../Error/Error";
 import { Loader } from "../Loader/Loader";
 import styles from './Tags.module.scss';
-
-type TagsProps = {
-    tag: string | null,
-    setTag: React.Dispatch<React.SetStateAction<string | null>>
-}
+import { useNavigate } from "react-router-dom";
 
 
-
-const Tags = ({tag, setTag} : TagsProps) => {
+const Tags = () => {
     const {order} = useOrderStore()
+    const navigate = useNavigate()
 
     useEffect(() => {
         order.getTags()
@@ -28,21 +24,22 @@ const Tags = ({tag, setTag} : TagsProps) => {
         return <Loader />
     }
 
-    const handleClick = (tag : string) => {
-        setTag(tag)
+    const handleClick = (item : string) => {
+        navigate('/')
+        order.fillTag(item)
     }
-
-    console.log(order.tags?.value.tags)
   return (
     <div className={styles.tags}>
         <span>Popular Tags</span>
         <div className={styles.tags__items}>
-            {order.tags?.value.tags.map(tag => (
+            {order.tags?.value.tags.map(item => (
                 <Chip 
-                    key={tag} 
-                    label={tag} 
+                    key={item} 
+                    label={item} 
                     sx={{ marginRight: '8px', marginBottom: '8px'}} 
-                    onClick={() => handleClick(tag)}/> 
+                    onClick={() => handleClick(item)}
+                    className={order.tag === item ? styles.tags__active : ''}
+                    /> 
             ))}
         </div>
     </div>

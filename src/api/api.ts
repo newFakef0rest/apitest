@@ -5,6 +5,10 @@ export const getPosts = async(id: number) => {
     return (await axios.get<TArticles>(`https://api.realworld.io/api/articles?limit=10&offset=${id * 10}`)).data
 }
 
+export const getPostsWithTag = async(id: number, tag: string) => {            
+    return (await axios.get<TArticles>(`https://api.realworld.io/api/articles?limit=10&offset=${id * 10}&tag=${tag}`)).data
+}
+
 export const getTags = async() => {            
     return (await axios.get<Tags>(`https://api.realworld.io/api/tags`)).data
 }
