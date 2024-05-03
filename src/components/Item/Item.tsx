@@ -57,7 +57,7 @@ const Item = ({item, className} : TItemProps) => {
                     </Button>
                     <Stack direction="row" spacing={1}>
                         {item.tagList.map(tag => (
-                            <Chip label={tag} variant="outlined"/>
+                            <Chip key={tag} label={tag} variant="outlined"/>
                                
                             
                         ))}

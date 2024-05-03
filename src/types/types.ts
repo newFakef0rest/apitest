@@ -31,6 +31,10 @@ type TAuthor = {
     following: boolean
 }
 
+type Tags = {
+    tags: [string]
+}
+
 type TProducts = {
     slug: string,
     title: string,
@@ -44,4 +48,4 @@ type TProducts = {
     author: TAuthor
 }
 
-export type { TArticles, TProducts, TArticle, TComments, TComment, TProfile};
+export type { TArticles, TProducts, TArticle, TComments, TComment, TProfile, Tags};

@@ -40,6 +40,7 @@
     "mobx": "^6.12.3",
     "mobx-react-lite": "^4.0.7",
     "mobx-utils": "^6.0.8",
+    "prettier": "3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }

@@ -10,9 +10,11 @@ import PaginationRounded from '../Pagination/Pagination';
 
 import { useOrderStore } from '../../contexts/storeContext';
 import Item from '../Item/Item';
+import Tags from '../Tags/Tags';
 
 function Items() {
     const {order} = useOrderStore()
+    const [tag, setTag] = React.useState<string | null>(null);
     
 
     const {id} = useParams<{id: string}>();
@@ -43,12 +45,15 @@ function Items() {
     <>
     <div className="container">
         <div className="row">
-            <div className="col__12">
+            <div className="col__9">
                 {order.products?.value.articles.map((item, idx) => (
                         // <h1>{item.slug}</h1>
                         <Item key={idx} item={item}></Item>
                     ))}
                     <PaginationRounded count={order.products?.value.articlesCount} newId={newId ? newId + 1 : 0}/>
+            </div>
+            <div className="col__3">
+                <Tags tag={tag} setTag={setTag}/>
             </div>
         </div>
     </div>
