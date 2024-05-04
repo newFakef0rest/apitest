@@ -46,8 +46,8 @@ class Order {
         this.comments = fromPromise(getComments(id));
     }
 
-    loadProfile(id: Array<string>, profileId: string) {
-        this.profileProducts = fromPromise(getProfileProducts(id))
+    loadProfile(id: Array<string>, profileId: string, newPage = 0) {
+        this.profileProducts = fromPromise(getProfileProducts(id, newPage))
         this.profile = fromPromise(getProfile(profileId))
     }
 }

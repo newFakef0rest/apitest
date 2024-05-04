@@ -21,8 +21,8 @@ export const getComments = async(id: string) => {
     return (await axios.get<TComments>(`https://api.realworld.io/api/articles/${id}/comments`)).data
 }
 
-export const getProfileProducts = async(id: Array<string>) => {
-    return (await axios.get<TArticles>(`https://api.realworld.io/api/articles?author=${id[0]}+${id[1]}&limit=5&offset=0`)).data
+export const getProfileProducts = async(id: Array<string>, newPage : number) => {
+    return (await axios.get<TArticles>(`https://api.realworld.io/api/articles?author=${id[0]}+${id[1]}&limit=5&offset=${newPage * 5}`)).data
 }
 
 export const getProfile = async(profileId: string) => {
