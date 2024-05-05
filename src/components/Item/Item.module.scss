@@ -21,3 +21,16 @@
         color: green;
     }
 }
+
+@media (max-width: 568px) {
+    .list {
+        &__button {
+            &_item {
+                flex-direction: column;
+                a {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
