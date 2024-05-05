@@ -13,6 +13,7 @@ body {
 .row {
     display: flex;
     padding: 0 -15px;
+    flex-wrap: wrap;
 }
 
 .col {
@@ -51,5 +52,28 @@ body {
     }
     &__1 {
         @include col(1);
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+    .col {
+        &__9 {
+            @include col(12);
+        }
+        &__3 {
+            @include col(9);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+    .container {
+        max-width: 567px;
     }
 }

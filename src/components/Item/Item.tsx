@@ -17,7 +17,7 @@ type TItemProps = {
 
 const Item = ({item, className} : TItemProps) => {
   return (
-    <List className={className} sx={{ width: '100%',bgcolor: 'background.paper' }}>
+    <List className={`${className} ${styles.list}`} sx={{ width: '100%',bgcolor: 'background.paper' }}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
                         <Link to={`/profile/${item.author.username}`}>
@@ -50,7 +50,7 @@ const Item = ({item, className} : TItemProps) => {
                             }
                         />
                 </ListItem>
-                <ListItem sx={{ justifyContent: 'space-between'}}>
+                <ListItem className={styles.list__button_item} sx={{ justifyContent: 'space-between'}}>
                     
                     <Button variant="outlined" href={`/product/${item.slug}`} color="success">
                         Read More...

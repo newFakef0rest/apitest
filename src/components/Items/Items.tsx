@@ -50,7 +50,7 @@ function Items() {
   return (
     <>
     <div className="container">
-        <div className="row">
+        <div className={`row ${styles.items__row}`}>
             <div className="col__9">
                 <div className={styles.items__global}>
                     <div className={styles.items__feed}>

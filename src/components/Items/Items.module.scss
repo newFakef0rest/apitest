@@ -17,3 +17,11 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 992px) {
+    .items {
+        &__row {
+            justify-content: center;
+        }
+    }
+}

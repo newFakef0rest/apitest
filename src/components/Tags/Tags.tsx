@@ -30,7 +30,7 @@ const Tags = () => {
     }
   return (
     <div className={styles.tags}>
-        <span>Popular Tags</span>
+        <span className={styles.tags__title}>Popular Tags</span>
         <div className={styles.tags__items}>
             {order.tags?.value.tags.map(item => (
                 <Chip 
